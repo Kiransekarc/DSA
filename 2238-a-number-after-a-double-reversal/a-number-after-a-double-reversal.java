@@ -1,26 +1,22 @@
 class Solution {
     public boolean isSameAfterReversals(int num) {
-        int temp = num;
+        int temp1 = num;
         int rev1 = 0;
-
-        while(temp!=0){
-            int n = temp%10;
-            rev1 = n+(rev1*10);
-            temp/=10;
-
-        }
-        
-        int ans1 = rev1;
-
-        int ans2=0;
-
-        while(rev1!=0){
-            int n = rev1%10;
-            ans2 = n+(ans2*10);
-            rev1/=10;
+        int rev2 = 0;
+        while(temp1!=0){
+            int n = temp1%10;
+            rev1 = (rev1*10)+n;
+            temp1/=10;
         }
 
-        if(num==ans2){
+        int temp2 = rev1;
+        while(temp2!=0){
+            int n = temp2%10;
+            rev2 = (rev2*10)+n;
+            temp2/=10;
+        }
+
+        if(num==rev2){
             return true;
         }
         return false;
